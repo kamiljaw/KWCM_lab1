@@ -1,35 +1,34 @@
-#ifdef USE_TRIGONOMETRY_DEGREE
-	#include <trygonometria.h>
-#else
-	#include <cmath>
-#endif
+#define _USE_MATH_DEFINES
 #include <iostream>
+#include <string>
+#include "LaborkaConfig.h"
+#ifdef USE_TRIGONOMETRY_DEGREE
+#include <trygonometria.h>
+#else
+#include <cmath>
+#endif
 
 
-int main() 
-{ 
-	double sinus;
-	double cosinus;
-	double tangens;
-	double cotangens;
-	double pi = 3.14;
+int main()
+{
 
-	#ifdef USE_TRIGONOMETRY_DEGREE
-		sinus = sin_degree(45)
-		cosinus = cos_degree(45);
-		tangens = tan_degree(45);
-		cotangens = ctg_degree(45);
-	#else
-		sinus = sin(pi/4.0);
-		cosinus = cos(pi/4.0);
-		tangens = tan(pi/4.0);
-		cotangens = 1/tan(pi/4.0);
-	#endif
-	
-		std::cout<<sinus<<std::endl;
-		std::cout<<cosinus<<std::endl;
-		std::cout<<tangens<<std::endl;
-		std::cout<<cotangens<<std::endl;
-		system("pause");
-	 
+#ifdef USE_TRIGONOMETRY_DEGREE
+	double kat = 45;
+	std::cout << "sin " << kat << " stopni = " << degreemath::sin(kat) << std::endl;
+	std::cout << "cos " << kat << " stopni = " << degreemath::cos(kat) << std::endl;
+	std::cout << "tg  " << kat << " stopni = " << degreemath::tan(kat) << std::endl;
+	std::cout << "ctg " << kat << " stopni = " << degreemath::ctg(kat) << std::endl;
+	std::cout << "Uzyto biblioteki trygonometria." << std::endl;
+#else
+	std::string kat = "pi/4";
+	double radian = M_PI / 4.0;
+	std::cout << "sin " << kat << " = " << sin(radian) << std::endl;
+	std::cout << "cos " << kat << " = " << cos(radian) << std::endl;
+	std::cout << "tg  " << kat << " = " << tan(radian) << std::endl;
+	std::cout << "ctg " << kat << " = " << 1 / tan(radian) << std::endl;
+	std::cout << "Uzyto cmath." << std::endl;
+#endif
+
+	std::cin.get();
+
 }

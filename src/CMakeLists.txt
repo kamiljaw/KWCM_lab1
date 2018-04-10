@@ -2,7 +2,7 @@ cmake_minimum_required (VERSION 2.8)
 project (PierwszyProgram)
 add_executable(Laborka main.cpp)
 
-option (USE_TRIGONOMETRY_DEGREE "Czy argumentami funkcji trygonometrycznych maja byc stopnie" OFF)
+option (USE_TRIGONOMETRY_DEGREE "Czy argumentami funkcji trygonometrycznych maja byc stopnie" ON)
 
 if (USE_TRIGONOMETRY_DEGREE)
 include_directories ("${PROJECT_SOURCE_DIR}/Trygonometria")
